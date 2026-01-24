@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.Controllers
 {
+    [AllowAnonymous]
     public class UILayoutController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Layout()
         {
             return View();
         }

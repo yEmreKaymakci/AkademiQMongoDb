@@ -1,6 +1,7 @@
 ﻿using AkademiQMongoDb.DTOs.ProductDtos;
 using AkademiQMongoDb.Services.CategoryServices;
 using AkademiQMongoDb.Services.ProductServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;

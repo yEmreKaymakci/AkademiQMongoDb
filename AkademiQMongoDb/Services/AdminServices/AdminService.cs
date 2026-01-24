@@ -13,7 +13,7 @@ namespace AkademiQMongoDb.Services.AdminServices
         public AdminService(IDatabaseSettings databaseSettings)
         {
             var client = new MongoClient(databaseSettings.ConnectionString);
-            var database = client.GetDatabase(databaseSettings.ConnectionString);
+            var database = client.GetDatabase(databaseSettings.DatabaseName);
             _adminCollection = database.GetCollection<Admin>("Admins");
         }
         public async Task CreateAdminAsync(RegisterAdminDto registerAdminDto)
@@ -22,9 +22,16 @@ namespace AkademiQMongoDb.Services.AdminServices
             await _adminCollection.InsertOneAsync(admin);
         }
 
+        public async Task<ResultAdminDto> GetAdminByUserNameAsync(string userName)
+        {
+            var admin = await _adminCollection.Find(x => x.UserName == userName).FirstOrDefaultAsync();
+
+            return admin.Adapt<ResultAdminDto>();
+        }
+
         public async Task<bool> LoginAdminAsync(LoginAdminDto loginAdminDto)
         {
-            var admin = await _adminCollection.Find(x=>x.UserName == loginAdminDto.UserName && x.Password == loginAdminDto.Password && x.IsVerified).FirstOrDefaultAsync();
+            var admin = await _adminCollection.Find(x => x.UserName == loginAdminDto.UserName && x.Password == loginAdminDto.Password && x.IsVerified).FirstOrDefaultAsync();
             if (admin is null)
             {
                 return false;

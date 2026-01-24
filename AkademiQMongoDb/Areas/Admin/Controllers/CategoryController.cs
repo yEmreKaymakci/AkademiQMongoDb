@@ -1,5 +1,6 @@
 ﻿using AkademiQMongoDb.DTOs.CategoryDtos;
 using AkademiQMongoDb.Services.CategoryServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.Areas.Admin.Controllers

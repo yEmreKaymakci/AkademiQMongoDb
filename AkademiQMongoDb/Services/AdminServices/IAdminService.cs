@@ -6,5 +6,6 @@ namespace AkademiQMongoDb.Services.AdminServices
     {
         Task CreateAdminAsync(RegisterAdminDto registerAdminDto);
         Task<bool> LoginAdminAsync(LoginAdminDto loginAdminDto);
+        Task<ResultAdminDto> GetAdminByUserNameAsync(string userName);
     }
 }
