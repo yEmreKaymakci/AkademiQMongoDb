@@ -1,7 +1,9 @@
 ﻿using AkademiQMongoDb.DTOs.ChefDtos;
 using AkademiQMongoDb.Entities;
 using AkademiQMongoDb.Settings;
+using Mapster;
 using MongoDB.Driver;
+using MongoDB.Driver.Linq;
 
 namespace AkademiQMongoDb.Services.ChefServices
 {
@@ -17,29 +19,33 @@ namespace AkademiQMongoDb.Services.ChefServices
 
         }
 
-        public Task CreateAsync(CreateChefDto chefDto)
+        public async Task CreateAsync(CreateChefDto chefDto)
         {
-            throw new NotImplementedException();
+            var chef = chefDto.Adapt<Chef>();
+            await _chefCollection.InsertOneAsync(chef);
         }
 
-        public Task DeleteAsync(string id)
+        public async Task DeleteAsync(string id)
         {
-            throw new NotImplementedException();
+            await _chefCollection.DeleteOneAsync(x => x.Id == id);
         }
 
-        public Task<List<ResultChefDto>> GetAllAsync()
+        public async Task<List<ResultChefDto>> GetAllAsync()
         {
-            throw new NotImplementedException();
+            var chef = await _chefCollection.AsQueryable().ToListAsync();
+            return chef.Adapt<List<ResultChefDto>>();
         }
 
-        public Task<UpdateChefDto> GetByIdAsync(string id)
+        public async Task<UpdateChefDto> GetByIdAsync(string id)
         {
-            throw new NotImplementedException();
+            var chef = await _chefCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
+            return chef.Adapt<UpdateChefDto>();
         }
 
-        public Task UpdateAsync(UpdateChefDto chefDto)
+        public async Task UpdateAsync(UpdateChefDto chefDto)
         {
-            throw new NotImplementedException();
+            var chef = chefDto.Adapt<Chef>();
+            await _chefCollection.FindOneAndReplaceAsync(x => x.Id == chef.Id, chef);
         }
     }
 }

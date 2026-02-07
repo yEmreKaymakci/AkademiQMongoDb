@@ -1,21 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>0cf7338e-6e50-4cff-92e3-ba4db0265892</UserSecretsId>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<UserSecretsId>0cf7338e-6e50-4cff-92e3-ba4db0265892</UserSecretsId>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Mapster" Version="7.4.0" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.23" />
-    <PackageReference Include="MongoDB.Driver" Version="3.5.2" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Mapster" Version="7.4.0" />
 
-  <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Areas\Admin\Models\" />
-  </ItemGroup>
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+
+		<PackageReference Include="MongoDB.Driver" Version="3.2.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Areas\Admin\Data\" />
+		<Folder Include="Areas\Admin\Models\" />
+	</ItemGroup>
 
 </Project>

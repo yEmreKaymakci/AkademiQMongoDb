@@ -4,31 +4,35 @@ using AkademiQMongoDb.Services.ProductServices;
 using AkademiQMongoDb.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
+// 1. Ayarlarý Yapýlandýrma (Configuration)
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection(nameof(DatabaseSettings)));
-
-//Service Registration
-builder.Services.AddScoped<ICategoryService, CategoryService>();
-builder.Services.AddScoped<IProductService, ProductService>();
-builder.Services.AddScoped<IAdminService, AdminService>();
 
 builder.Services.AddSingleton<IDatabaseSettings>(sp =>
 {
     return sp.GetRequiredService<IOptions<DatabaseSettings>>().Value;
 });
 
+// 2. Servis Kayýtlarý (Dependency Injection)
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IAdminService, AdminService>();
+
+// 3. Controller ve Yetkilendirme Politikasý
 builder.Services.AddControllersWithViews(options =>
 {
-    options.Filters.Add(new AuthorizeFilter());
+    // Varsayýlan olarak tüm sayfalarda yetki (login) istensin
+    var policy = new AuthorizationPolicyBuilder()
+                     .RequireAuthenticatedUser()
+                     .Build();
+    options.Filters.Add(new AuthorizeFilter(policy));
 });
 
+// 4. Session Ayarlarý
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -36,40 +40,44 @@ builder.Services.AddSession(options =>
     options.Cookie.IsEssential = true;
 });
 
+// 5. Authentication (Giriþ Ýþlemleri)
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-    .AddCookie(config =>
+    .AddCookie(options =>
     {
-        config.LoginPath = "/Login/Index";
-        config.LogoutPath = "/Login/Logout";
-        config.Cookie.Name = "MilkyAppCookie";
-        config.SlidingExpiration = true;
+        options.LoginPath = "/Login/Index";
+        options.LogoutPath = "/Login/Logout";
+        options.Cookie.Name = "MilkyAppCookie";
+        options.SlidingExpiration = true;
+        options.AccessDeniedPath = "/Login/AccessDenied"; // Yetkisiz giriþler için
     });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// --- Middleware Hattý (Pipeline) ---
+
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(); // CSS, JS, Resimler için
 
 app.UseRouting();
-app.UseAuthentication();
-app.UseAuthorization();
 
-app.UseSession();
+app.UseSession(); // Session Authentication'dan önce veya sonra olabilir ama Routing'den sonra olmasý iyidir.
 
+app.UseAuthentication(); // Kimlik Doðrulama (Kimsin?)
+app.UseAuthorization();  // Yetkilendirme (Girebilir misin?)
+
+// Area Rotalarý (Admin paneli vb. için)
 app.MapControllerRoute(
   name: "areas",
   pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
 );
 
-
+// Varsayýlan Rota
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
