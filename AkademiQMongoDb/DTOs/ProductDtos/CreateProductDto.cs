@@ -4,12 +4,12 @@ namespace AkademiQMongoDb.DTOs.ProductDtos
 {
     public class CreateProductDto
     {
-        [Required(ErrorMessage ="Ürün adı boş bırakılamaz.")]
-        [MinLength(3,ErrorMessage ="Ürün adı en az 3 karakter olmalıdır.")]
+        [Required(ErrorMessage = "Ürün adı boş bırakılamaz.")]
+        [MinLength(3, ErrorMessage = "Ürün adı en az 3 karakter olmalıdır.")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Ürün açıklaması boş bırakılamaz.")]
-        [MaxLength(250,ErrorMessage ="Ürün açıklaması 250 karakteri geçemez.")]
+        [MaxLength(250, ErrorMessage = "Ürün açıklaması 250 karakteri geçemez.")]
         public string Description { get; set; }
 
         [Required(ErrorMessage = "Görsel Url boş bırakılamaz.")]

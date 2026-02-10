@@ -1,9 +1,8 @@
-﻿using AkademiQMongoDb.Entities.Common;
-
-namespace AkademiQMongoDb.Entities
+﻿namespace AkademiQMongoDb.DTOs.BannerDtos
 {
-    public class Service: BaseEntity
+    public class ResultBannerDto
     {
+        public string Id { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }

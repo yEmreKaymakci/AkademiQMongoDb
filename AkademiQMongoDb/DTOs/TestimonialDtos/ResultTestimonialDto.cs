@@ -1,9 +1,8 @@
-﻿using AkademiQMongoDb.Entities.Common;
-
-namespace AkademiQMongoDb.Entities
+﻿namespace AkademiQMongoDb.DTOs.TestimonialDtos
 {
-    public class Testimonial : BaseEntity
+    public class ResultTestimonialDto
     {
+        public string Id { get; set; }
         public string ImageUrl { get; set; }
         public string FullName { get; set; }
         public string Title { get; set; }
