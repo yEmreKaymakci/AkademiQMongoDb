@@ -2,168 +2,456 @@
 	Layout = null;
 }
 
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>Milky - Dairy Website Template</title>
-	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<meta content="" name="keywords">
-	<meta content="" name="description">
+	<!-- ========== Meta Tags ========== -->
+	<meta charset="utf-8">S
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Foodu - Food & Restaurant HTML Template ">
 
-	<!-- Favicon -->
-	<link href="/dairy-website-template/img/favicon.ico" rel="icon">
+	<!-- ========== Page Title ========== -->
+	<title>Foodu - Food & Restaurant HTML Template </title>
 
-	<!-- Google Web Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+	<!-- ========== Favicon Icon ========== -->
+	<link rel="shortcut icon" href="~/source/assets/img/favicon.png" type="image/x-icon">
 
-	<!-- Icon Font Stylesheet -->
-	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+	<!-- ========== Start Stylesheet ========== -->
+	<link href="~/source/assets/css/bootstrap.min.css" rel="stylesheet">
+	<link href="~/source/assets/css/font-awesome.min.css" rel="stylesheet">
+	<link href="~/source/assets/css/flaticon-set.css" rel="stylesheet">
+	<link href="~/source/assets/css/magnific-popup.css" rel="stylesheet">
+	<link href="~/source/assets/css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="~/source/assets/css/animate.min.css" rel="stylesheet">
+	<link href="~/source/assets/css/bootstrap-datepicker3.css" rel="stylesheet">
+	<link href="~/source/assets/css/validnavs.css" rel="stylesheet">
+	<link href="~/source/assets/css/helper.css" rel="stylesheet">
+	<link href="~/source/assets/css/unit-test.css" rel="stylesheet">
+	<link href="~/source/assets/css/shop.css" rel="stylesheet">
+	<link href="~/source/assets/css/style.css" rel="stylesheet">
+	<link href="style.css" rel="stylesheet">
+	<!-- ========== End Stylesheet ========== -->
+	<!--[if lte IE 9]>
+		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+	<![endif]-->
 
-	<!-- Libraries Stylesheet -->
-	<link href="/dairy-website-template/lib/animate/animate.min.css" rel="stylesheet">
-	<link href="/dairy-website-template/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-	<link href="/dairy-website-template/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
-
-	<!-- Customized Bootstrap Stylesheet -->
-	<link href="/dairy-website-template/css/bootstrap.min.css" rel="stylesheet">
-
-	<!-- Template Stylesheet -->
-	<link href="/dairy-website-template/css/style.css" rel="stylesheet">
 </head>
 
 <body>
-	<!-- Spinner Start -->
-	<div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-		<div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+
+	<div class="radio-btn-light">
+		<div class="radio-inner-light"></div>
 	</div>
-	<!-- Spinner End -->
-	<!-- Topbar Start -->
-	<div class="container-fluid bg-dark px-0">
-		<div class="row g-0 d-none d-lg-flex">
-			<div class="col-lg-6 ps-5 text-start">
-				<div class="h-100 d-inline-flex align-items-center text-light">
-					<span>Follow Us:</span>
-					<a class="btn btn-link text-light" href=""><i class="fab fa-facebook-f"></i></a>
-					<a class="btn btn-link text-light" href=""><i class="fab fa-twitter"></i></a>
-					<a class="btn btn-link text-light" href=""><i class="fab fa-linkedin-in"></i></a>
-					<a class="btn btn-link text-light" href=""><i class="fab fa-instagram"></i></a>
-				</div>
+
+	<!-- Start Preloader
+	============================================= -->
+	<div id="preloader">
+		<div id="restan-preloader" class="restan-preloader">
+			<div class="animation-preloader">
+				<div class="spinner"></div>
 			</div>
-			<div class="col-lg-6 text-end">
-				<div class="h-100 bg-secondary d-inline-flex align-items-center text-dark py-2 px-4">
-					<span class="me-2 fw-semi-bold"><i class="fa fa-phone-alt me-2"></i>Call Us:</span>
-					<span>+012 345 6789</span>
+			<div class="loader">
+				<div class="row">
+					<div class="col-3 loader-section section-left">
+						<div class="bg"></div>
+					</div>
+					<div class="col-3 loader-section section-left">
+						<div class="bg"></div>
+					</div>
+					<div class="col-3 loader-section section-right">
+						<div class="bg"></div>
+					</div>
+					<div class="col-3 loader-section section-right">
+						<div class="bg"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- Topbar End -->
-	<!-- Navbar Start -->
-	<nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5">
-		<a href="index.html" class="navbar-brand d-flex align-items-center">
-			<h1 class="m-0">Milky</h1>
-		</a>
-		<button type="button" class="navbar-toggler me-0" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarCollapse">
-			<div class="navbar-nav ms-auto p-4 p-lg-0">
-				<a href="/Default/Index" class="nav-item nav-link active">Ana Sayfa</a>
-				<a href="#" class="nav-item nav-link">Hakkımızda</a>
-				<a href="#" class="nav-item nav-link">Hizmetler</a>
-				<a href="#" class="nav-item nav-link">Ürünler</a>
-				<a href="#" class="nav-item nav-link">İletişim</a>
-				<a href="/Login/Index" class="nav-item nav-link">Giriş Yap</a>
+	<!-- End Preloader -->
+	<!-- Header
+	============================================= -->
+	<header>
+		<!-- Start Navigation -->
+		<nav class="navbar mobile-sidenav navbar-sticky navbar-default validnavs navbar-fixed white no-background nav-border">
+
+			<!-- Start Top Search -->
+			<div class="top-search">
+				<div class="container-xl">
+					<div class="input-group">
+						<span class="input-group-addon"><i class="fa fa-search"></i></span>
+						<input type="text" class="form-control" placeholder="Search">
+						<span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+					</div>
+				</div>
 			</div>
-			<div class="border-start ps-4 d-none d-lg-block">
-				<button type="button" class="btn btn-sm p-0"><i class="fa fa-search"></i></button>
+			<!-- End Top Search -->
+
+
+			<div class="container-full d-flex justify-content-between align-items-center">
+
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<a class="navbar-brand" href="index.html">
+						<img src="~/source/assets/img/logo-light.png" class="logo logo-display" alt="Logo">
+						<img src="~/source/assets/img/logo.png" class="logo logo-scrolled" alt="Logo">
+					</a>
+				</div>
+				<!-- End Header Navigation -->
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+
+					<img src="~/source/assets/img/logo.png" alt="Logo">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-times"></i>
+					</button>
+
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
+							<ul class="dropdown-menu">
+								<li><a href="index-3.html">Home</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+							<ul class="dropdown-menu">
+								<li><a href="about-us.html">About Us</a></li>
+								<li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Chef</a>
+									<ul class="dropdown-menu">
+										<li><a href="chef.html">Chef Style One</a></li>
+										<li><a href="chef-details.html">Chef Details</a></li>
+									</ul>
+								</li>
+								<li><a href="reservation.html">Reservation</a></li>
+								<li><a href="contact.html">Contact Us</a></li>
+								<li><a href="404.html">Error Page</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu</a>
+							<ul class="dropdown-menu">
+								<li><a href="food-menu.html">Menu Style One</a></li>
+								<li><a href="food-menu-2.html">Menu Style Two</a></li>
+								<li><a href="food-menu-3.html">Menu Style Three</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
+							<ul class="dropdown-menu">
+								<li><a href="blog-standard.html">Blog Standard</a></li>
+								<li><a href="blog-with-sidebar.html">Blog With Sidebar</a></li>
+								<li><a href="blog-2-colum.html">Blog Grid Two Colum</a></li>
+								<li><a href="blog-3-colum.html">Blog Grid Three Colum</a></li>
+								<li><a href="blog-single.html">Blog Single</a></li>
+								<li><a href="blog-single-with-sidebar.html">Blog Single With Sidebar</a></li>
+							</ul>
+						</li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop</a>
+							<ul class="dropdown-menu">
+								<li><a href="shop.html">Shop</a></li>
+								<li><a href="shop-single.html">Shop Single</a></li>
+								<li><a href="shop-single-thumb-only.html">Shop Single Two</a></li>
+								<li><a href="cart.html">Cart</a></li>
+								<li><a href="checkout.html">Checkout</a></li>
+								<li><a href="login.html">Login</a></li>
+								<li><a href="register.html">Register</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+
+				<div class="attr-right">
+					<!-- Start Atribute Navigation -->
+					<div class="attr-nav attr-box">
+						<ul>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									<i class="far fa-shopping-cart"></i>
+									<span class="badge">3</span>
+								</a>
+								<ul class="dropdown-menu cart-list">
+									<li>
+										<div class="thumb">
+											<a href="#" class="photo">
+												<img src="~/source/assets/img/shop/1.png" alt="Thumb">
+											</a>
+											<a href="#" class="remove-product">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+										<div class="info">
+											<h6><a href="#">Delica omtantur </a></h6>
+											<p>2x - <span class="price">$99.99</span></p>
+										</div>
+									</li>
+									<li>
+										<div class="thumb">
+											<a href="#" class="photo">
+												<img src="~/source/assets/img/shop/2.png" alt="Thumb">
+											</a>
+											<a href="#" class="remove-product">
+												<i class="fas fa-times"></i>
+											</a>
+										</div>
+										<div class="info">
+											<h6><a href="#">Omnes ocurreret</a></h6>
+											<p>1x - <span class="price">$33.33</span></p>
+										</div>
+									</li>
+									<li class="total">
+										<span class="pull-right"><strong>Total</strong>: $0.00</span>
+										<a href="#" class="btn btn-default btn-cart">Cart</a>
+										<a href="#" class="btn btn-default btn-cart">Checkout</a>
+									</li>
+								</ul>
+							</li>
+							<li class="side-menu">
+								<a href="#">
+									<span class="bar-1"></span>
+									<span class="bar-2"></span>
+									<span class="bar-3"></span>
+								</a>
+							</li>
+						</ul>
+					</div>
+					<!-- End Atribute Navigation -->
+				</div>
+
+				<!-- Start Side Menu -->
+				<div class="side">
+					<a href="#" class="close-side"><i class="fas fa-times"></i></a>
+					<div class="widget">
+						<div class="logo">
+							<img src="~/source/assets/img/logo-light-2.png" alt="Logo">
+						</div>
+						<p>
+							Arrived compass prepare an on as. Reasonable particular on my it in sympathize. Size now easy eat hand how. Unwilling he departure elsewhere dejection at. Heart large seems may purse means few blind.
+						</p>
+					</div>
+					<div class="widget address">
+						<div>
+							<ul>
+								<li>
+									<div class="content">
+										<p>Address</p>
+										<strong>California, TX 70240</strong>
+									</div>
+								</li>
+								<li>
+									<div class="content">
+										<p>Email</p>
+										<strong>support@validtheme.com</strong>
+									</div>
+								</li>
+								<li>
+									<div class="content">
+										<p>Contact</p>
+										<strong>+44-20-7328-4499</strong>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="widget newsletter">
+						<h4 class="title">Get Subscribed!</h4>
+						<form action="#">
+							<div class="input-group stylish-input-group">
+								<input type="email" placeholder="Enter your e-mail" class="form-control" name="email">
+								<span class="input-group-addon">
+									<button type="submit">
+										<i class="fas fa-arrow-right"></i>
+									</button>
+								</span>
+							</div>
+						</form>
+					</div>
+					<div class="widget social">
+						<ul class="link">
+							<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+							<li><a href="#"><i class="fab fa-behance"></i></a></li>
+						</ul>
+					</div>
+
+				</div>
+				<!-- End Side Menu -->
+
 			</div>
-		</div>
-	</nav>
-	<!-- Navbar End -->
+			<!-- Overlay screen for menu -->
+			<div class="overlay-screen"></div>
+			<!-- End Overlay screen for menu -->
+
+		</nav>
+		<!-- End Navigation -->
+	</header>
+	<!-- End Header -->
 	@RenderBody()
-	<!-- Footer Start -->
-	<div class="container-fluid bg-dark footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-		<div class="container py-5">
-			<div class="row g-5">
-				<div class="col-lg-3 col-md-6">
-					<h5 class="text-white mb-4">Our Office</h5>
-					<p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-					<p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-					<p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
-					<div class="d-flex pt-3">
-						<a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
-						<a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
-						<a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
-						<a class="btn btn-square btn-secondary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h5 class="text-white mb-4">Quick Links</h5>
-					<a class="btn btn-link" href="">About Us</a>
-					<a class="btn btn-link" href="">Contact Us</a>
-					<a class="btn btn-link" href="">Our Services</a>
-					<a class="btn btn-link" href="">Terms & Condition</a>
-					<a class="btn btn-link" href="">Support</a>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h5 class="text-white mb-4">Business Hours</h5>
-					<p class="mb-1">Monday - Friday</p>
-					<h6 class="text-light">09:00 am - 07:00 pm</h6>
-					<p class="mb-1">Saturday</p>
-					<h6 class="text-light">09:00 am - 12:00 pm</h6>
-					<p class="mb-1">Sunday</p>
-					<h6 class="text-light">Closed</h6>
-				</div>
-				<div class="col-lg-3 col-md-6">
-					<h5 class="text-white mb-4">Newsletter</h5>
-					<p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
-					<div class="position-relative w-100">
-						<input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-						<button type="button" class="btn btn-secondary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Footer End -->
-	<!-- Copyright Start -->
-	<div class="container-fluid bg-secondary text-body copyright py-4">
+	<!-- Start Footer
+	============================================= -->
+	<footer class="bg-dark footer-style-one text-light">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-					&copy; <a class="fw-semi-bold" href="#">Your Site Name</a>, All Right Reserved.
+				<!-- Singel Item -->
+				<div class="col-lg-3 col-md-6 footer-item mt-50">
+					<div class="f-item about">
+						<img src="~/source/assets/img/logo-3.png" alt="Image Not Found">
+						<p>
+							Discover culinary delights recipes and inspiration in our food haven.
+						</p>
+						<ul class="opening-list">
+							<li>
+								Mon  -  Fri <span class="text-end">8:00 AM  -  6:00 PM</span>
+							</li>
+							<li>
+								Saturday <span class="text-end">9:00 AM  -  5:00 PM</span>
+							</li>
+						</ul>
+					</div>
 				</div>
-				<div class="col-md-6 text-center text-md-end">
-					<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-					Designed By <a class="fw-semi-bold" href="https://htmlcodex.com">HTML Codex</a>
+				<!-- End Singel Item -->
+				<!-- Singel Item -->
+				<div class="col-lg-2 col-md-6 mt-50 footer-item pl-50 pl-md-15 pl-xs-15">
+					<div class="f-item link">
+						<h4 class="widget-title">Explore</h4>
+						<ul>
+							<li>
+								<a href="about-us.html">Compnay Profile</a>
+							</li>
+							<li>
+								<a href="about-us.html">About</a>
+							</li>
+							<li>
+								<a href="contact-us.html">Help Center</a>
+							</li>
+							<li>
+								<a href="contact-us.html">Career</a>
+							</li>
+							<li>
+								<a href="about-us.html">Features</a>
+							</li>
+							<li>
+								<a href="contact-us.html">Contact</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- End Singel Item -->
+				<!-- Singel Item -->
+				<div class="col-lg-3 col-md-6 footer-item  mt-50">
+					<div class="f-item contact">
+						<h4 class="widget-title">Contact Info</h4>
+						<ul class="contact-widget">
+							<li>
+								<div class="icon">
+									<i class="fas fa-map-marker-alt"></i>
+								</div>
+								<div class="content">
+									175 10h Street, Office 375 Berlin, De 21562
+								</div>
+							</li>
+							<li>
+								<div class="icon">
+									<i class="fas fa-phone"></i>
+								</div>
+								<div class="content">
+									<a href="tel:2151234567">+123 34598768</a> <br> <a href="tel:2151234567">+554 34598734</a>
+								</div>
+							</li>
+							<li>
+								<div class="icon">
+									<i class="fas fa-envelope"></i>
+								</div>
+								<div class="content">
+									<a href="mailto:name@email.com">food@restan.com</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<!-- End Singel Item -->
+				<!-- Singel Item -->
+				<div class="col-lg-4 col-md-6 footer-item mt-50">
+					<div class="f-item newsletter">
+						<h4 class="widget-title">Newsletter</h4>
+						<p>
+							Join our subscribers list to get the latest news and special offers.
+						</p>
+						<form action="#">
+							<input type="email" placeholder="Your Email" class="form-control" name="email">
+							<button type="submit"> Subscribe <i class="fas fa-long-arrow-right"></i></button>
+						</form>
+						<div class="footer-socila-items mt-30">
+							<h4>Social Meida: </h4>
+							<ul class="footer-social">
+								<li>
+									<a href="#">
+										<i class="fab fa-facebook-f"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- End Singel Item -->
+
+
+			</div>
+
+			<!-- Footer Bottom -->
+			<div class="footer-bottom">
+				<div class="row align-center">
+					<div class="col-lg-6">
+						<p>
+							© Copyright 2025 Foodu. All Rights Reserved
+						</p>
+					</div>
 				</div>
 			</div>
+			<!-- End Footer Bottom -->
 		</div>
-	</div>
-	<!-- Copyright End -->
-	<!-- Back to Top -->
-	<a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+	</footer>
+	<!-- End Footer -->
+	<!-- jQuery Frameworks
+	============================================= -->
+	<script src="~/source/assets/js/jquery-3.6.0.min.js"></script>
+	<script src="~/source/assets/js/bootstrap.bundle.min.js"></script>
+	<script src="~/source/assets/js/jquery.appear.js"></script>
+	<script src="~/source/assets/js/swiper-bundle.min.js"></script>
+	<script src="~/source/assets/js/progress-bar.min.js"></script>
+	<script src="~/source/assets/js/wow.min.js"></script>
+	<script src="~/source/assets/js/isotope.pkgd.min.js"></script>
+	<script src="~/source/assets/js/imagesloaded.pkgd.min.js"></script>
+	<script src="~/source/assets/js/magnific-popup.min.js"></script>
+	<script src="~/source/assets/js/count-to.js"></script>
+	<script src="~/source/assets/js/jquery.nice-select.min.js"></script>
+	<script src="~/source/assets/js/YTPlayer.min.js"></script>
+	<script src="~/source/assets/js/loopcounter.js"></script>
+	<script src="~/source/assets/js/validnavs.js"></script>
+	<script src="~/source/assets/js/bootstrap-datepicker.js"></script>
+	<script src="~/source/assets/js/gsap.js"></script>
+	<script src="~/source/assets/js/ScrollTrigger.min.js"></script>
+	<script src="~/source/assets/js/SplitText.min.js"></script>
+	<script src="~/source/assets/js/main.js"></script>
 
-
-	<!-- JavaScript Libraries -->
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="/dairy-website-template/lib/wow/wow.min.js"></script>
-	<script src="/dairy-website-template/lib/easing/easing.min.js"></script>
-	<script src="/dairy-website-template/lib/waypoints/waypoints.min.js"></script>
-	<script src="/dairy-website-template/lib/owlcarousel/owl.carousel.min.js"></script>
-	<script src="/dairy-website-template/lib/counterup/counterup.min.js"></script>
-	<script src="/dairy-website-template/lib/parallax/parallax.min.js"></script>
-	<script src="/dairy-website-template/lib/lightbox/js/lightbox.min.js"></script>
-
-	<!-- Template Javascript -->
-	<script src="/dairy-website-template/js/main.js"></script>
 </body>
-
 </html>
