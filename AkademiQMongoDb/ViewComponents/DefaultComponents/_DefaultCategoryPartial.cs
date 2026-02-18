@@ -2,7 +2,7 @@
 
 namespace AkademiQMongoDb.ViewComponents.DefaultComponents
 {
-    public class _MainSliderViewComponent : ViewComponent
+    public class _DefaultCategoryPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

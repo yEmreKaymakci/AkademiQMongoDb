@@ -2,7 +2,7 @@
 
 namespace AkademiQMongoDb.ViewComponents.DefaultComponents
 {
-    public class _CategoryViewComponent : ViewComponent
+    public class _DefaultChefPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {

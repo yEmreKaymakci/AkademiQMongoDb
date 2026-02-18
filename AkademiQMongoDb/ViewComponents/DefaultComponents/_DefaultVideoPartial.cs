@@ -2,7 +2,7 @@
 
 namespace AkademiQMongoDb.ViewComponents.DefaultComponents
 {
-    public class _MenuViewComponent : ViewComponent
+    public class _DefaultVideoPartial : ViewComponent
     {
         public IViewComponentResult Invoke()
         {
