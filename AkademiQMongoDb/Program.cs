@@ -1,6 +1,13 @@
+using AkademiQMongoDb.Services.AboutServices;
 using AkademiQMongoDb.Services.AdminServices;
+using AkademiQMongoDb.Services.BannerServices;
 using AkademiQMongoDb.Services.CategoryServices;
+using AkademiQMongoDb.Services.ChefServices;
+using AkademiQMongoDb.Services.ContactServices;
 using AkademiQMongoDb.Services.ProductServices;
+using AkademiQMongoDb.Services.SendMessageServices;
+using AkademiQMongoDb.Services.SubscriberServices;
+using AkademiQMongoDb.Services.TestimonialServices;
 using AkademiQMongoDb.Settings;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -21,6 +28,13 @@ builder.Services.AddSingleton<IDatabaseSettings>(sp =>
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IBannerService, BannerService>();
+builder.Services.AddScoped<IAboutService, AboutService>();
+builder.Services.AddScoped<IChefService, ChefService>();
+builder.Services.AddScoped<IContactService, ContactService>();
+builder.Services.AddScoped<ISendMessageService, SendMessageService>();
+builder.Services.AddScoped<ISubscriberService, SubscriberService>();
+builder.Services.AddScoped<ITestimonialService, TestimonialService>();
 
 // 3. Controller ve Yetkilendirme Politikasý
 builder.Services.AddControllersWithViews(options =>

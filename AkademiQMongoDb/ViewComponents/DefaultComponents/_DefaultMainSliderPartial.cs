@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AkademiQMongoDb.Services.BannerServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.ViewComponents.DefaultComponents
 {
     public class _DefaultMainSliderPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IBannerService _bannerService;
+
+        public _DefaultMainSliderPartial(IBannerService bannerService)
         {
-            return View();
+            _bannerService = bannerService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _bannerService.GetAllAsync();
+            return View(values);
         }
     }
 }
