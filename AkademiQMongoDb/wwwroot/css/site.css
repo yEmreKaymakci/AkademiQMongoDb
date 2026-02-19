@@ -20,3 +20,36 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* 1. Ana Kapsayýcý (Link Etiketi) Ayarlarý */
+.food-cat-item a {
+    /* Overlay'in bu kutu içinde kalmasý için relative pozisyon þart */
+    position: relative;
+    /* Yazýlarýn (h4 ve span) overlay'in üstünde kalmasýný garantiye alýr */
+    z-index: 1;
+    /* Resimlerin düzgün görünmesi için temel ayarlar (zaten temada olabilir) */
+    background-size: cover;
+    background-position: center center;
+    display: block; /* Linkin kutu gibi davranmasý için */
+    /* Kenarlýklarýn yuvarlatýlmasý varsa overlay de uysun diye */
+    overflow: hidden;
+}
+
+    /* 2. Karartma Katmaný (Overlay) */
+    .food-cat-item a::before {
+        content: ""; /* Boþ bir içerik oluþturur */
+        position: absolute; /* Ana kapsayýcýya göre konumlanýr */
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        /* KRÝTÝK NOKTA: Siyahýn %50 saydam hali. 0.5'i artýrýrsan daha koyu olur */
+        background-color: rgba(0, 0, 0, 0.5);
+        /* Yazýnýn arkasýna, resmin önüne geçmesi için -1 veriyoruz */
+        z-index: -1;
+        transition: background-color 0.3s ease; /* Hover efekti için yumuþak geçiþ */
+    }
+
+    /* Opsiyonel: Mouse ile üzerine gelince biraz daha kararsýn */
+    .food-cat-item a:hover::before {
+        background-color: rgba(0, 0, 0, 0.7); /* %70 koyuluk */
+    }

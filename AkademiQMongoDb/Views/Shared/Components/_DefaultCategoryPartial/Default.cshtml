@@ -1,10 +1,12 @@
-﻿<div class="food-cat-area default-padding bg-gray" style="background-image: url(/source/assets/img/shape/3.png);">
+﻿@using AkademiQMongoDb.ViewComponents.DefaultComponents
+@model List<CategoryShowcaseModel>
+<div class="food-cat-area default-padding bg-gray" style="background-image: url(/source/assets/img/shape/3.png);">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 offset-lg-2">
 				<div class="site-heading text-center">
 					<h4 class="sub-title">Yemek Kategorileri</h4>
-					<h2 class="title split-text">Top category of our menus</h2>
+					<h2 class="title split-text">Menümüzdeki Kategoriler</h2>
 				</div>
 			</div>
 		</div>
@@ -17,45 +19,17 @@
 					<!-- Additional required wrapper -->
 					<div class="swiper-wrapper">
 						<!-- Single Item -->
-						<div class="swiper-slide">
-							<div class="food-cat-item">
-								<a href="#" style="background-image: url(/source/assets/img/category/1.jpg);">
-									<h4>Fast food</h4>
-									<span>80+ Items</span>
-								</a>
+						@foreach (var item in Model)
+						{
+							<div class="swiper-slide">
+								<div class="food-cat-item">
+									<a href="/Menu/Index/" style="background-image: url(@item.ImageUrl);">
+										<h4>@item.CategoryName</h4>
+										<span>@item.ProductCount</span>
+									</a>
+								</div>
 							</div>
-						</div>
-						<!-- End Single Item -->
-						<!-- Single Item -->
-						<div class="swiper-slide">
-							<div class="food-cat-item">
-								<a href="#" style="background-image: url(/source/assets/img/category/2.jpg);">
-									<h4>Sea food</h4>
-									<span>48+ Items</span>
-								</a>
-							</div>
-						</div>
-						<!-- End Single Item -->
-						<!-- Single Item -->
-						<div class="swiper-slide">
-							<div class="food-cat-item">
-								<a href="#" style="background-image: url(/source/assets/img/category/3.jpg);">
-									<h4>Dessert</h4>
-									<span>45 Items</span>
-								</a>
-							</div>
-						</div>
-						<!-- End Single Item -->
-						<!-- Single Item -->
-						<div class="swiper-slide">
-							<div class="food-cat-item">
-								<a href="#" style="background-image: url(/source/assets/img/category/4.jpg);">
-									<h4>Beverage</h4>
-									<span>18 Items</span>
-								</a>
-							</div>
-						</div>
-						<!-- End Single Item -->
+						}
 					</div>
 				</div>
 			</div>

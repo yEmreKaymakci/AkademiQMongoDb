@@ -7,11 +7,15 @@ namespace AkademiQMongoDb.ViewComponents.AdminLayoutComponents
     {
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var userName = HttpContext.Session.GetString("UserName").ToString();
-
-            var admin = await _adminService.GetAdminByUserNameAsync(userName);
-
-            ViewBag.fullName = string.Join(" ", admin.FirstName, admin.LastName);
+            var userName = HttpContext.Session.GetString("UserName");
+            if (!string.IsNullOrEmpty(userName))
+            {
+                var admin = await _adminService.GetAdminByUserNameAsync(userName);
+                if (admin != null)
+                {
+                    ViewBag.fullName = string.Join(" ", admin.FirstName, admin.LastName);
+                }
+            }
             return View();
         }
     }

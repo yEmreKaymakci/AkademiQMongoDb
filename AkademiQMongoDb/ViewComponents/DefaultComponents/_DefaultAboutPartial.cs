@@ -1,12 +1,22 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AkademiQMongoDb.Services.AboutServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.ViewComponents.DefaultComponents
 {
     public class _DefaultAboutPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly IAboutService _aboutService;
+
+        public _DefaultAboutPartial(IAboutService aboutService)
         {
-            return View();
+            _aboutService = aboutService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _aboutService.GetAllAsync();
+            var singleAbout = values.FirstOrDefault();
+            return View(singleAbout);
         }
     }
 }

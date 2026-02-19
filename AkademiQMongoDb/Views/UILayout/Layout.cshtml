@@ -4,7 +4,7 @@
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 
 <head>
 	<!-- ========== Meta Tags ========== -->
@@ -20,6 +20,7 @@
 	<link rel="shortcut icon" href="~/source/assets/img/favicon.png" type="image/x-icon">
 
 	<!-- ========== Start Stylesheet ========== -->
+	<link href="~/css/site.css" rel="stylesheet">
 	<link href="~/source/assets/css/bootstrap.min.css" rel="stylesheet">
 	<link href="~/source/assets/css/font-awesome.min.css" rel="stylesheet">
 	<link href="~/source/assets/css/flaticon-set.css" rel="stylesheet">
@@ -99,8 +100,8 @@
 						<i class="fa fa-bars"></i>
 					</button>
 					<a class="navbar-brand" href="index.html">
-						<img src="~/source/assets/img/logo-light.png" class="logo logo-display" alt="Logo">
-						<img src="~/source/assets/img/logo.png" class="logo logo-scrolled" alt="Logo">
+						<img src="~/image/logo_Yazili.jpg" class="logo logo-display" alt="Logo">
+						<img src="~/image/logo_Yazili.jpg" class="logo logo-scrolled" alt="Logo">
 					</a>
 				</div>
 				<!-- End Header Navigation -->
@@ -113,46 +114,30 @@
 					</button>
 
 					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle active" data-toggle="dropdown">Home</a>
-							<ul class="dropdown-menu">
-								<li><a href="index-3.html">Home</a></li>
-							</ul>
+						<li>
+							<a href="/Default/Index/" class="active">Ana Sayfa</a>
 						</li>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages</a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Sayfalar</a>
 							<ul class="dropdown-menu">
-								<li><a href="about-us.html">About Us</a></li>
-								<li class="dropdown">
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Chef</a>
+								@* <li class="dropdown">
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">Şeflerimiz</a>
 									<ul class="dropdown-menu">
 										<li><a href="chef.html">Chef Style One</a></li>
 										<li><a href="chef-details.html">Chef Details</a></li>
 									</ul>
-								</li>
-								<li><a href="reservation.html">Reservation</a></li>
-								<li><a href="contact.html">Contact Us</a></li>
+								</li> *@
 								<li><a href="404.html">Error Page</a></li>
 							</ul>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu</a>
-							<ul class="dropdown-menu">
-								<li><a href="food-menu.html">Menu Style One</a></li>
-								<li><a href="food-menu-2.html">Menu Style Two</a></li>
-								<li><a href="food-menu-3.html">Menu Style Three</a></li>
-							</ul>
+						<li>
+							<a href="/About/Index/">Hakkımızda</a>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Blog</a>
-							<ul class="dropdown-menu">
-								<li><a href="blog-standard.html">Blog Standard</a></li>
-								<li><a href="blog-with-sidebar.html">Blog With Sidebar</a></li>
-								<li><a href="blog-2-colum.html">Blog Grid Two Colum</a></li>
-								<li><a href="blog-3-colum.html">Blog Grid Three Colum</a></li>
-								<li><a href="blog-single.html">Blog Single</a></li>
-								<li><a href="blog-single-with-sidebar.html">Blog Single With Sidebar</a></li>
-							</ul>
+						<li>
+							<a href="/Menu/Index/" class="active">Menü</a>
+						</li>
+						<li>
+							<a href="/Contact/Index/">İletişim</a>
 						</li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Shop</a>
