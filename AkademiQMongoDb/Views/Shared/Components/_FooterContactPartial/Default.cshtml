@@ -1,0 +1,31 @@
+﻿@model ResultContactDto
+
+<div class="f-item contact">
+	<h4 class="widget-title">İletişim Bilgileri</h4>
+	<ul class="contact-widget">
+		<li>
+			<div class="icon">
+				<i class="fas fa-map-marker-alt"></i>
+			</div>
+			<div class="content">
+				@Model?.Address
+			</div>
+		</li>
+		<li>
+			<div class="icon">
+				<i class="fas fa-phone"></i>
+			</div>
+			<div class="content">
+				<a href="tel:@Model?.PhoneNumber">@Model?.PhoneNumber</a>
+			</div>
+		</li>
+		<li>
+			<div class="icon">
+				<i class="fas fa-envelope"></i>
+			</div>
+			<div class="content">
+				<a href="mailto: @Model?.Email">@Model?.Email</a>
+			</div>
+		</li>
+	</ul>
+</div>

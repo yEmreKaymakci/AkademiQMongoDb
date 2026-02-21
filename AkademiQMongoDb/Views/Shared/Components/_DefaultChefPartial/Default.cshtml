@@ -1,136 +1,68 @@
-﻿<div class="chef-style-one-area default-padding bottom-less">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 offset-lg-2">
-                <div class="site-heading text-center">
-                    <h4 class="sub-title">Professional Chef</h4>
-                    <h2 class="title split-text">Mutfağımızın Krallarıyla Tanışın</h2>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <!-- Single Item -->
-            <div class="col-lg-3 col-md-6 chef-one-single mb-30">
-                <div class="chef-style-one-item wow fadeInUp">
-                    <div class="thumb">
-                        <img src="~/source/assets/img/team/1.jpg" alt="Image Not Found">
-                        <ul class="chef-one-social">
-                            <li class="facebook">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-dribbble"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info">
-                        <h4><a href="#">Alexander Petllo</a></h4>
-                        <span>Assistant Chef</span>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Item -->
-            <!-- Single Item -->
-            <div class="col-lg-3 col-md-6 chef-one-single mb-30">
-                <div class="chef-style-one-item wow fadeInUp" data-wow-delay="100ms">
-                    <div class="thumb">
-                        <img src="~/source/assets/img/team/2.jpg" alt="Image Not Found">
-                        <ul class="chef-one-social">
-                            <li class="facebook">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-dribbble"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info">
-                        <h4><a href="#">Mendia Juxef</a></h4>
-                        <span>Burger King</span>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Item -->
-            <!-- Single Item -->
-            <div class="col-lg-3 col-md-6 chef-one-single mb-30">
-                <div class="chef-style-one-item wow fadeInUp" data-wow-delay="200ms">
-                    <div class="thumb">
-                        <img src="~/source/assets/img/team/3.jpg" alt="Image Not Found">
-                        <ul class="chef-one-social">
-                            <li class="facebook">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-dribbble"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info">
-                        <h4><a href="#">Petro William</a></h4>
-                        <span>Main Chef</span>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Item -->
-            <!-- Single Item -->
-            <div class="col-lg-3 col-md-6 chef-one-single mb-30">
-                <div class="chef-style-one-item wow fadeInUp" data-wow-delay="300ms">
-                    <div class="thumb">
-                        <img src="~/source/assets/img/team/4.jpg" alt="Image Not Found">
-                        <ul class="chef-one-social">
-                            <li class="facebook">
-                                <a href="#">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-dribbble"></i>
-                                </a>
-                            </li>
-                            <li class="twitter">
-                                <a href="#">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="info">
-                        <h4><a href="#">Kunnel Jexos</a></h4>
-                        <span>Pizza Master</span>
-                    </div>
-                </div>
-            </div>
-            <!-- End Single Item -->
-        </div>
-    </div>
+﻿@model List<ResultChefDto>
+<div class="chef-style-one-area default-padding bottom-less">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2">
+				<div class="site-heading text-center">
+					<h4 class="sub-title">Prodesyonel Şefler</h4>
+					<h2 class="title split-text">Mutfağımızın Krallarıyla Tanışın</h2>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" id="chef-container">
+
+			@{
+				int index = 0;
+			}
+
+			@foreach (var item in Model)
+			{
+				// İlk 4 şeften sonrakilere 'extra-chef' ve 'd-none' (gizleme) methodu
+
+				string hiddenClass = index >= 4 ? "extra-chef d-none" : "";
+
+				<div class="col-lg-3 col-md-6 chef-one-single mb-30 @hiddenClass">
+					<div class="chef-style-one-item wow fadeInUp">
+						<div class="thumb">
+							<img src="@item.ImageUrl" alt="ChefPhoto">
+							<ul class="chef-one-social">
+								<li class="@item.SocialMedia1">
+									<a href="#">
+										<i class="fab fa-instagram"></i>
+									</a>
+								</li>
+								<li class="@item.SocialMedia2">
+									<a href="#">
+										<i class="fab fa-linkedin-in"></i>
+									</a>
+								</li>
+								<li class="@item.SocialMedia3">
+									<a href="#">
+										<i class="fab fa-dribbble "></i>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="info">
+							<h4><a href="#">@item.FullName</a></h4>
+							<span>@item.Title</span>
+						</div>
+					</div>
+				</div>
+				index++;
+			}
+		</div>
+		@if (Model.Count > 4)
+		{
+			<div class="row mt-4">
+				<div class="col-12 text-center">
+					<button id="btnToggleChefs" class="btn btn-outline-primary btn-md" onclick="toggleChefs()">
+						Daha Fazla Göster <i class="fas fa-arrow-down ms-1"></i>
+					</button>
+				</div>
+			</div>
+		}
+	</div>
 </div>

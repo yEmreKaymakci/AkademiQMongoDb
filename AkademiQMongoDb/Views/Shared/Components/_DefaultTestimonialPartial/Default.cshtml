@@ -1,69 +1,50 @@
-﻿<div class="testimonial-style-one-area default-padding bg-gray bg-cover text-center" style="background-image: url(~/source/assets/img/shape/4.jpg);">
+﻿@model List<ResultTestimonialDto>
+<div class="testimonial-style-one-area default-padding bg-gray bg-cover text-center" style="background-image: url(~/source/assets/img/shape/4.jpg);">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-8 offset-lg-2">
 				<div class="testimonial-style-one-carousel swiper">
-					<!-- Additional required wrapper -->
 					<div class="swiper-wrapper">
-						<!-- Single item -->
-						<div class="swiper-slide">
-							<div class="testimonial-style-one">
-								<div class="item">
-									<div class="content">
-										<div class="tm-review">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-										</div>
-										<div class="provider">
-											<h4>Best Chicken Fry</h4>
-										</div>
-										<p>
-											"Thanks to your web agency team for their professional work. The website they created for my business exceeded my expectations, and my clients have given positive feedback about its design and user-friendliness."
-										</p>
-										<div class="tm-proivder-thumb">
-											<img src="~/source/assets/img/food/1.jpg" alt="Image Not Found">
-											<img src="~/source/assets/img/team/10.jpg" alt="Image Not Found">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Single item -->
-						<!-- Single item -->
-						<div class="swiper-slide">
-							<div class="testimonial-style-one">
-								<div class="item">
-									<div class="content">
-										<div class="tm-review">
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-											<i class="fas fa-star"></i>
-										</div>
-										<div class="provider">
-											<h4>This pizza is so good</h4>
-										</div>
-										<p>
-											"Thanks to your web agency team for their professional work. The website they created for my business exceeded my expectations, and my clients have given positive feedback about its design and user-friendliness."
-										</p>
-										<div class="tm-proivder-thumb">
-											<!--<img src="~/source/assets/img/food/6.jpg" alt="Image Not Found">-->
-											<img src="~/source/assets/img/team/11.jpg" alt="Image Not Found">
+						@foreach (var item in Model)
+						{
+							<div class="swiper-slide">
+								<div class="testimonial-style-one">
+									<div class="item">
+										<div class="content">
+
+											<div class="tm-review mb-3">
+												@for (int i = 0; i < item.Rate; i++)
+												{
+													<i class="fas fa-star"></i>
+												}
+											</div>
+											<div class="provider">
+												<h4 class="text-dark fw-bold mb-1">@item.FullName</h4>
+											</div>
+
+											<p class="mb-4">
+												"@item.Comment"
+											</p>
+
+											<div class="tm-proivder-thumb mb-3">
+												<img src="@item.ImageUrl" alt="_ReferansResmi">
+											</div>
+
+											<div class="provider">
+												<span style="color: #718096; font-family: 'Georgia', serif; font-style: italic; font-size: 0.9rem;">
+													@item.Title
+												</span>
+											</div>
+
 										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<!-- End Single item -->
+						}
 					</div>
 
 				</div>
-				<!-- Navigation -->
-				<div class="testimonial-pagination">
+				<div class="testimonial-pagination" style="margin-top: -70px; position: relative; z-index: 10;">
 					<div class="swiper-pagination"></div>
 				</div>
 			</div>

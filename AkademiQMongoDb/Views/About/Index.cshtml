@@ -1,10 +1,11 @@
-﻿@{
+﻿@model ResultAboutDto
+@{
 	ViewData["Title"] = "Index";
 	Layout = "~/Views/UILayout/Layout.cshtml";
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <body>
 
 	<div class="radio-btn-light">
@@ -18,10 +19,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12 col-md-12">
-					<h1>About Us</h1>
+					<h1>Hakkımızda</h1>
 					<ul class="breadcrumb">
-						<li><a href="#"><i class="fas fa-home"></i> Home</a></li>
-						<li>About</li>
+						<li><a href="/Default/Index/"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+						<li>Hakkımızda</li>
 					</ul>
 				</div>
 			</div>
@@ -35,15 +36,15 @@
 			<div class="row align-center">
 				<div class="col-lg-6">
 					<div class="thumb-style-one">
-						<img class="wow fadeInUp" src="~/source/assets/img/about/1.jpg" alt="Image Not Found">
+						<img class="wow fadeInUp" src="@Model.ImageUrl" alt="image_Logo">
 						<div class="contact-card-one wow fadeInLeft" data-wow-delay="200ms">
-							<a href="tel:+4733378901">
+							<a href="tel:@Model.Number">
 								<div class="icon">
 									<i class="fa fa-phone"></i>
 								</div>
 								<div class="info">
-									<span>HOTLINE 24/7</span>
-									<h4>+473337890</h4>
+									<span> 24/7 Müsait</span>
+									<h4>@Model.Number</h4>
 								</div>
 							</a>
 						</div>
@@ -51,11 +52,11 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="about-style-one-info">
-						<h4 class="sub-heading">Our Story</h4>
-						<h2 class="title split-text">Until I discovered cooking I was never really interested in anything</h2>
+						<h4 class="sub-heading">Hikayemiz</h4>
+						<h2 class="title split-text">@Model.Title</h2>
 						<div class="content mt-50">
 							<p class="split-text">
-								The first restaurant proprietor is believed to have been one A. Boulanger, a soup vendor, who opened his business in Paris in 1765. The sign above his door advertised restoratives, or restaurants, referring to the soups and broths available within.
+								@Model.Description
 							</p>
 						</div>
 					</div>
@@ -71,109 +72,90 @@
 			<div class="row align-center">
 				<div class="col-lg-6">
 					<div class="fun-fact-style-one-items">
-						<h2 class="split-text">Experience of  real recipes taste</h2>
+						<h2 class="split-text">Gerçek Lezzeti Deneyimleyin</h2>
 						<div class="fun-fact-style-one-content">
 							<div class="fun-fact">
 								<div class="counter">
-									<div class="timer" data-to="98" data-speed="2000">98</div>
-									<div class="operator">K</div>
+									<div class="timer" data-to="@ViewBag.ProductCount" data-speed="2000">100</div>
+									<div class="operator">+</div>
 								</div>
-								<span class="medium">Daily Orders</span>
+								<span class="medium">Çeşit Yemek</span>
 							</div>
 							<div class="fun-fact">
 								<div class="counter">
-									<div class="timer" data-to="5" data-speed="2000">100</div>
+									<div class="timer" data-to="@ViewBag.ChefCount" data-speed="2000">100</div>
 									<div class="operator">+</div>
 								</div>
-								<span class="medium">Menu & Dish</span>
+								<span class="medium">Çalışan</span>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="thumb">
-						<img class="wow fadeInRight" src="~/source/assets/img/illustration/16.png" alt="Image Not Found">
+						<img class="wow fadeInRight" src="~/source/assets/img/illustration/16.png" alt="_tabaktaTavukSalata">
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End Fun Fact -->
-	<!-- Start Testimonial
-	============================================= -->
+
 	<div class="testimonial-style-one-area default-padding text-center" style="background-image: url(~/source/img/shape/4.png);">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2">
 					<div class="testimonial-style-one-carousel swiper">
-						<!-- Additional required wrapper -->
 						<div class="swiper-wrapper">
-							<!-- Single item -->
-							<div class="swiper-slide">
-								<div class="testimonial-style-one">
-									<div class="item">
-										<div class="content">
-											<div class="tm-review">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-											</div>
-											<div class="provider">
-												<h4>Best Chicken Fry</h4>
-											</div>
-											<p>
-												"Thanks to your web agency team for their professional work. The website they created for my business exceeded my expectations, and my clients have given positive feedback about its design and user-friendliness."
-											</p>
-											<div class="tm-proivder-thumb">
-												<img src="~/source/assets/img/food/1.jpg" alt="Image Not Found">
-												<img src="~/source/assets/img/team/10.jpg" alt="Image Not Found">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End Single item -->
-							<!-- Single item -->
-							<div class="swiper-slide">
-								<div class="testimonial-style-one">
-									<div class="item">
-										<div class="content">
-											<div class="tm-review">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-											</div>
-											<div class="provider">
-												<h4>This pizza is so good</h4>
-											</div>
-											<p>
-												"Thanks to your web agency team for their professional work. The website they created for my business exceeded my expectations, and my clients have given positive feedback about its design and user-friendliness."
-											</p>
-											<div class="tm-proivder-thumb">
-												<img src="~/source/assets/img/food/6.jpg" alt="Image Not Found">
-												<img src="~/source/assets/img/team/11.jpg" alt="Image Not Found">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End Single item -->
-						</div>
+							@{
+								var testimonialList = ViewBag.Testimonials as List<ResultTestimonialDto>;
+							}
+							@foreach (var item in testimonialList)
+							{
+								<div class="swiper-slide">
+									<div class="testimonial-style-one">
+										<div class="item">
+											<div class="content">
 
+												<div class="tm-review mb-3">
+													@for (int i = 0; i < item.Rate; i++)
+													{
+														<i class="fas fa-star"></i>
+													}
+												</div>
+												<div class="provider">
+													<h4 class="text-dark fw-bold mb-1">@item.FullName</h4>
+												</div>
+
+												<p class="mb-4">
+													"@item.Comment"
+												</p>
+
+												<div class="tm-proivder-thumb mb-3">
+													<img src="@item.ImageUrl" alt="_ReferansResmi">
+												</div>
+
+												<div class="provider">
+													<span style="color: #718096; font-family: 'Georgia', serif; font-style: italic; font-size: 0.9rem;">
+														@item.Title
+													</span>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							}
+						</div>
+						<div class="testimonial-pagination" style="margin-top: -70px; position: relative; z-index: 10;">
+							<div class="swiper-pagination"></div>
+						</div>
 					</div>
-					<!-- Navigation -->
-					<div class="testimonial-pagination">
-						<div class="swiper-pagination"></div>
-					</div>
+
+					
 				</div>
 			</div>
 		</div>
 	</div>
-	<!-- End Testimonial Area -->
 
 </body>
 </html>

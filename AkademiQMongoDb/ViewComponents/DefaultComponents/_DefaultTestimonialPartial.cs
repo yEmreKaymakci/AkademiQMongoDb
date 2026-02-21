@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AkademiQMongoDb.Services.TestimonialServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.ViewComponents.DefaultComponents
 {
     public class _DefaultTestimonialPartial : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly ITestimonialService _testimonialService;
+
+        public _DefaultTestimonialPartial(ITestimonialService testimonialService)
         {
-            return View();
+            _testimonialService = testimonialService;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _testimonialService.GetAllAsync();
+            return View(values);
         }
     }
 }

@@ -76,6 +76,8 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+// Hata durumlarýnda (Özellikle 404 Sayfa Bulunamadý) çalýþacak özel yönlendirme
+app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404/");
 app.UseStaticFiles(); // CSS, JS, Resimler için
 
 app.UseRouting();
