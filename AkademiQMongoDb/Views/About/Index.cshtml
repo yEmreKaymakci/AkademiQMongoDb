@@ -4,158 +4,145 @@
 	Layout = "~/Views/UILayout/Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="tr">
-<body>
 
-	<div class="radio-btn-light">
-		<div class="radio-inner-light"></div>
-	</div>
-
-	<!-- End Preloader -->
-	<!-- Start Breadcrumb
-	============================================= -->
-	<div class="breadcrumb-area bg-cover text-center text-light" style="background-image: url(/source/assets/img/shape/11.jpg);">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12 col-md-12">
-					<h1>Hakkımızda</h1>
-					<ul class="breadcrumb">
-						<li><a href="/Default/Index/"><i class="fas fa-home"></i> Ana Sayfa</a></li>
-						<li>Hakkımızda</li>
-					</ul>
-				</div>
+<div class="breadcrumb-area bg-cover text-center text-light" style="background-image: url(/source/assets/img/shape/11.jpg);">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 col-md-12">
+				<h1>Hakkımızda</h1>
+				<ul class="breadcrumb">
+					<li><a href="/Default/Index/"><i class="fas fa-home"></i> Ana Sayfa</a></li>
+					<li>Hakkımızda</li>
+				</ul>
 			</div>
 		</div>
 	</div>
-	<!-- End Breadcrumb -->
-	<!-- Start About
-	============================================= -->
-	<div class="about-style-one-area default-padding">
-		<div class="container">
-			<div class="row align-center">
-				<div class="col-lg-5">
-					<div class="thumb-style-one">
-						<img class="wow fadeInUp" src="@Model.ImageUrl" alt="image_Logo">
-						<div class="contact-card-one wow fadeInLeft" data-wow-delay="200ms">
-							<a href="tel:@Model.Number">
-								<div class="icon">
-									<i class="fa fa-phone"></i>
-								</div>
-								<div class="info">
-									<span> 24/7 Müsait</span>
-									<h4>@Model.Number</h4>
-								</div>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-7">
-					<div class="about-style-one-info">
-						<h4 class="sub-heading">Hikayemiz</h4>
-						<h2 class="title split-text">@Model.Title</h2>
-						<div class="content mt-50">
-							<p class="split-text">
-								@Model.Description
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>	
-	<!-- End About -->
-	<!-- Start Fun Fact
-	============================================= -->
-	<div class="fun-fact-style-one-area default-padding">
-		<div class="container">
-			<div class="row align-center">
-				<div class="col-lg-6">
-					<div class="fun-fact-style-one-items">
-						<h2 class="split-text">Gerçek Lezzeti Deneyimleyin</h2>
-						<div class="fun-fact-style-one-content">
-							<div class="fun-fact">
-								<div class="counter">
-									<div class="timer" data-to="@ViewBag.ProductCount" data-speed="2000">100</div>
-									<div class="operator">+</div>
-								</div>
-								<span class="medium">Çeşit Yemek</span>
+</div>
+<!-- End Breadcrumb -->
+<!-- Start About
+============================================= -->
+<div class="about-style-one-area default-padding">
+	<div class="container">
+		<div class="row align-center">
+			<div class="col-lg-6">
+				<div class="thumb-style-one">
+					<img class="wow fadeInUp" src="@Model.ImageUrl" alt="image_Logo">
+					<div class="contact-card-one wow fadeInLeft" data-wow-delay="200ms">
+						<a href="tel:@Model.Number">
+							<div class="icon">
+								<i class="fa fa-phone"></i>
 							</div>
-							<div class="fun-fact">
-								<div class="counter">
-									<div class="timer" data-to="@ViewBag.ChefCount" data-speed="2000">100</div>
-									<div class="operator">+</div>
-								</div>
-								<span class="medium">Çalışan</span>
+							<div class="info">
+								<span> 24/7 Müsait</span>
+								<h4>@Model.Number</h4>
 							</div>
-						</div>
+						</a>
 					</div>
 				</div>
-				<div class="col-lg-5 offset-lg-1">
-					<div class="thumb">
-						<img class="wow fadeInRight" src="~/source/assets/img/illustration/16.png" alt="_tabaktaTavukSalata">
+			</div>
+			<div class="col-lg-6">
+				<div class="about-style-one-info">
+					<h4 class="sub-heading">Hikayemiz</h4>
+					<h2 class="title split-text">@Model.Title</h2>
+					<div class="content mt-50">
+						<p class="split-text">
+							@Model.Description
+						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+<!-- End About -->
+<!-- Start Fun Fact
+============================================= -->
+<div class="fun-fact-style-one-area default-padding">
+	<div class="container">
+		<div class="row align-center">
+			<div class="col-lg-6">
+				<div class="fun-fact-style-one-items">
+					<h2 class="split-text">Gerçek Lezzeti Deneyimleyin</h2>
+					<div class="fun-fact-style-one-content">
+						<div class="fun-fact">
+							<div class="counter">
+								<div class="timer" data-to="@ViewBag.ProductCount" data-speed="2000">100</div>
+								<div class="operator">+</div>
+							</div>
+							<span class="medium">Çeşit Yemek</span>
+						</div>
+						<div class="fun-fact">
+							<div class="counter">
+								<div class="timer" data-to="@ViewBag.ChefCount" data-speed="2000">100</div>
+								<div class="operator">+</div>
+							</div>
+							<span class="medium">Çalışan</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-5 offset-lg-1">
+				<div class="thumb">
+					<img class="wow fadeInRight" src="~/source/assets/img/illustration/16.png" alt="_tabaktaTavukSalata">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-	<div class="testimonial-style-one-area default-padding text-center" style="background-image: url(~/source/img/shape/4.png);">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
-					<div class="testimonial-style-one-carousel swiper">
-						<div class="swiper-wrapper">
-							@{
-								var testimonialList = ViewBag.Testimonials as List<ResultTestimonialDto>;
-							}
-							@foreach (var item in testimonialList)
-							{
-								<div class="swiper-slide">
-									<div class="testimonial-style-one">
-										<div class="item">
-											<div class="content">
+<div class="testimonial-style-one-area default-padding text-center" style="background-image: url(~/source/img/shape/4.png);">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2">
+				<div class="testimonial-style-one-carousel swiper">
+					<div class="swiper-wrapper">
+						@{
+							var testimonialList = ViewBag.Testimonials as List<ResultTestimonialDto>;
+						}
+						@foreach (var item in testimonialList)
+						{
+							<div class="swiper-slide">
+								<div class="testimonial-style-one">
+									<div class="item">
+										<div class="content">
 
-												<div class="tm-review mb-3">
-													@for (int i = 0; i < item.Rate; i++)
-													{
-														<i class="fas fa-star"></i>
-													}
-												</div>
-												<div class="provider">
-													<h4 class="text-dark fw-bold mb-1">@item.FullName</h4>
-												</div>
-
-												<p class="mb-4">
-													"@item.Comment"
-												</p>
-
-												<div class="tm-proivder-thumb mb-3">
-													<img src="@item.ImageUrl" alt="_ReferansResmi">
-												</div>
-
-												<div class="provider">
-													<span style="color: #718096; font-family: 'Georgia', serif; font-style: italic; font-size: 0.9rem;">
-														@item.Title
-													</span>
-												</div>
-
+											<div class="tm-review mb-3">
+												@for (int i = 0; i < item.Rate; i++)
+												{
+													<i class="fas fa-star"></i>
+												}
 											</div>
+											<div class="provider">
+												<h4 class="text-dark fw-bold mb-1">@item.FullName</h4>
+											</div>
+
+											<p class="mb-4">
+												"@item.Comment"
+											</p>
+
+											<div class="tm-proivder-thumb mb-3">
+												<img src="@item.ImageUrl" alt="_ReferansResmi">
+											</div>
+
+											<div class="provider">
+												<span style="color: #718096; font-family: 'Georgia', serif; font-style: italic; font-size: 0.9rem;">
+													@item.Title
+												</span>
+											</div>
+
 										</div>
 									</div>
 								</div>
-							}
-						</div>
-						<div class="testimonial-pagination" style="margin-top: -70px; position: relative; z-index: 10;">
-							<div class="swiper-pagination"></div>
-						</div>
+							</div>
+						}
 					</div>
-
-					
+					<div class="testimonial-pagination" style="margin-top: -70px; position: relative; z-index: 10;">
+						<div class="swiper-pagination"></div>
+					</div>
 				</div>
+
+
 			</div>
 		</div>
 	</div>
-
-</body>
-</html>
+</div>

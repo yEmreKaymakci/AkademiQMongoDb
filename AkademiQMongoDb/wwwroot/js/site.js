@@ -135,3 +135,33 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+// ==========================================
+// 4. ÜRÜN DETAY MODALI (MENÜ SAYFASI)
+// ==========================================
+// Bu fonksiyon HTML içindeki onclick="openProductModal(this)" tarafından tetiklenir
+function openProductModal(element) {
+    // Tıklanan butondaki verileri alıyoruz
+    var name = element.getAttribute('data-name');
+    var price = element.getAttribute('data-price');
+    var desc = element.getAttribute('data-desc');
+    var img = element.getAttribute('data-img');
+
+    // Modal içindeki hedefleri buluyoruz
+    var modalName = document.getElementById('modalName');
+    var modalPrice = document.getElementById('modalPrice');
+    var modalDesc = document.getElementById('modalDesc');
+    var modalImg = document.getElementById('modalImg');
+
+    // GÜVENLİK KİLİDİ: Eğer bulunulan sayfada Modal yoksa işlemi durdur
+    if (!modalName || !modalPrice || !modalDesc || !modalImg) return;
+
+    // Verileri Modal'ın içine yerleştiriyoruz
+    modalName.innerText = name;
+    modalPrice.innerText = price + " ₺";
+    modalDesc.innerText = desc;
+    modalImg.src = img;
+
+    // Modal'ı ekranda gösteriyoruz (jQuery ve Bootstrap entegrasyonu)
+    $('#productDetailModal').modal('show');
+}

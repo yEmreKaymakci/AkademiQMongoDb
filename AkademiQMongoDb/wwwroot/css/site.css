@@ -1,26 +1,29 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
-/* 1. Ana Kapsayýcý (Link Etiketi) Ayarlarý */
+
+/* ==========================================
+   1. KATEGORÝ KARTLARI (OVERLAY) AYARLARI
+   ========================================== */
 .food-cat-item a {
     /* Overlay'in bu kutu içinde kalmasý için relative pozisyon þart */
     position: relative;
@@ -34,7 +37,7 @@ body {
     overflow: hidden;
 }
 
-    /* 2. Karartma Katmaný (Overlay) */
+    /* Karartma Katmaný (Overlay) */
     .food-cat-item a::before {
         content: ""; /* Boþ bir içerik oluþturur */
         position: absolute; /* Ana kapsayýcýya göre konumlanýr */
@@ -49,7 +52,38 @@ body {
         transition: background-color 0.3s ease; /* Hover efekti için yumuþak geçiþ */
     }
 
-    /* Opsiyonel: Mouse ile üzerine gelince biraz daha kararsýn */
+    /* Mouse ile üzerine gelince biraz daha kararsýn */
     .food-cat-item a:hover::before {
         background-color: rgba(0, 0, 0, 0.7); /* %70 koyuluk */
+    }
+
+/* ==========================================
+   2. MENÜ ÜRÜN KARTLARI (HÝZALAMA VE SABÝTLEME)
+   ========================================== */
+/* Metni 2 satýrla sýnýrlar, fazlasýna ... koyar */
+.text-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Yüklenen resim dikey veya yatay olsa bile bozmadan, sündürmeden tam ayný boyutta kýrpar */
+.food-menu-style-one .thumb img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+/* Ýçerik kýsa bile olsa kartýn yüksekliðini standart tutar ve Flexbox'a çevirir */
+.food-menu-style-one .info {
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+}
+
+    /* Üstteki metin kýsa kalsa bile, butonu daima kartýn en dibine yapýþtýrýr */
+    .food-menu-style-one .info .button {
+        margin-top: auto;
     }
