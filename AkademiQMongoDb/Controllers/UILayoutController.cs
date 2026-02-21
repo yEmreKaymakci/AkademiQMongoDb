@@ -12,11 +12,13 @@ namespace AkademiQMongoDb.Controllers
     {
         private readonly IContactService _contactService;
         private readonly ISubscriberService _subscriberService;
+        private readonly ILogger<ContactController> _logger;
 
-        public UILayoutController(IContactService contactService, ISubscriberService subscriberService)
+        public UILayoutController(IContactService contactService, ISubscriberService subscriberService, ILogger<ContactController> logger)
         {
             _contactService = contactService;
             _subscriberService = subscriberService;
+            _logger = logger;
         }
         [HttpGet]
 
