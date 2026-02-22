@@ -1,0 +1,43 @@
+﻿@model List<ResultChefDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Şefler Sayfası</h1>
+
+<table class="table table-hover">
+    <tr>
+		<th>#</th>
+		<th>Resim Linki</th>
+        <th>Tam İsim</th>
+        <th>Başlık</th>
+        <th>Sosyal Medya1</th>
+        <th>Sosyal Medya2</th>
+        <th>Sosyal Medya3</th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+			<th>@count</th>
+			<td><img src="@item.ImageUrl" style="width:75px;height:75px" /></td>            
+            <td>@item.FullName</td>
+            <td>@item.Title</td>
+            <td>@item.SocialMedia1</td>
+            <td>@item.SocialMedia2</td>
+            <td>@item.SocialMedia3</td>
+            <td>
+                <a href="/Admin/Chef/DeleteChef/@item.Id" onclick="return confirm('Bu öğeyi silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</a>
+                <a href="/Admin/Chef/UpdateChef/@item.Id" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="/Admin/Chef/CreateChef" class="btn btn-outline-dark">Yeni Şef Ekle</a>
+

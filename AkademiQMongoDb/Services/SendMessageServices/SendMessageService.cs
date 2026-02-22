@@ -3,7 +3,6 @@ using AkademiQMongoDb.Entities;
 using AkademiQMongoDb.Settings;
 using Mapster;
 using MongoDB.Driver;
-using MongoDB.Driver.Linq;
 
 namespace AkademiQMongoDb.Services.SendMessageServices
 {
@@ -26,12 +25,14 @@ namespace AkademiQMongoDb.Services.SendMessageServices
 
         public async Task DeleteAsync(string id)
         {
-            await _sendMessageCollection.DeleteOneAsync(id);
+            // DÜZELTME: id doğrudan verilemez, lambda ifadesiyle filtre yazılmalıdır.
+            await _sendMessageCollection.DeleteOneAsync(x => x.Id == id);
         }
 
         public async Task<List<ResultSendBoxDto>> GetAllAsync()
         {
-            var message = await _sendMessageCollection.AsQueryable().ToListAsync();
+            // DÜZELTME: AsQueryable() hatasından kaçınmak için Find(x => true) kullandık.
+            var message = await _sendMessageCollection.Find(x => true).ToListAsync();
             return message.Adapt<List<ResultSendBoxDto>>();
         }
 
@@ -39,6 +40,12 @@ namespace AkademiQMongoDb.Services.SendMessageServices
         {
             var message = await _sendMessageCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
             return message.Adapt<ResultSendBoxDto>();
+        }
+
+        public async Task UpdateAsync(UpdateSendMessageDto sendMessageDto)
+        {
+            var message = sendMessageDto.Adapt<SendMessage>();
+            await _sendMessageCollection.FindOneAndReplaceAsync(x => x.Id == message.Id, message);
         }
     }
 }

@@ -1,0 +1,42 @@
+﻿
+@model UpdateChefDto
+@{
+    ViewData["Title"] = "UpdateChef";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Şef Güncelleme Sayfası</h1>
+<br />
+<br />
+
+<form method="post">
+    <input type="hidden" asp-for="Id"/>
+    <label>Şefin Adı Soyadı</label>
+    <input type="text" asp-for="FullName" class="form-control" placeholder="Örn: Ahmet Yılmaz" required />
+    <span asp-validation-for="FullName" class="text-danger"></span>
+    <br>
+
+    <label>Şef Ünvanı</label>
+    <input type="text" asp-for="Title" class="form-control" placeholder="Örn: Marinasyon Ustası veya Sos Uzmanı" required />
+    <span asp-validation-for="Title" class="text-danger"></span>
+    <br>
+
+    <label>Şefin Fotoğraf Linki (URL)</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" placeholder="https://..." required />
+    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    <br>
+
+    <label>Sosyal Medya 1 (Instagram)</label>
+    <input type="text" asp-for="SocialMedia1" class="form-control" placeholder="Link ekleyiniz..." />
+    <br>
+
+    <label>Sosyal Medya 2 (LinkedIn)</label>
+    <input type="text" asp-for="SocialMedia2" class="form-control" placeholder="Link ekleyiniz..." />
+    <br>
+
+    <label>Sosyal Medya 3 (X/Twitter)</label>
+    <input type="text" asp-for="SocialMedia3" class="form-control" placeholder="Link ekleyiniz..." />
+    <br>
+
+    <button class="btn btn-dark">Şefi Güncelle</button>
+</form>

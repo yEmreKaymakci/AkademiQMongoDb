@@ -1,0 +1,19 @@
+﻿@model UpdateSubscriberDto
+@{
+	ViewData["Title"] = "UpdateSubscriber";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Abonelik Güncelleme</h1>
+<br />
+<br />
+
+<form method="post">
+	<input type="hidden" asp-for="Id" />
+	<label>Müşteri Adı Soyadı</label>
+	<input type="text" asp-for="Email" class="form-control" placeholder="Örn: google@gmail" required />
+	<span asp-validation-for="Email" class="text-danger"></span>
+	<br>
+
+	<button class="btn btn-dark">Aboneliği Kaydet</button>
+</form>

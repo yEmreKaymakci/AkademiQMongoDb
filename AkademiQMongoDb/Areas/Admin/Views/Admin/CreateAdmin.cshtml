@@ -1,0 +1,29 @@
+﻿@model CreateAdminDto
+@{
+    ViewData["Title"] = "CreateAdmin";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Admin Kullanıcısı</h1>
+<br />
+<br />
+
+<form method="post">
+    <label>Kullanıcı Adı</label>
+    <input type="text" asp-for="UserName" class="form-control" required />
+    <br>
+
+    <label>Ad</label>
+    <input type="text" asp-for="FirstName" class="form-control" required />
+    <br>
+
+    <label>Soyad</label>
+    <input type="text" asp-for="LastName" class="form-control" required />
+    <br>
+
+    <label>Şifre</label>
+    <input type="password" asp-for="Password" class="form-control" required />
+    <br>
+
+    <button class="btn btn-dark">Kaydet</button>
+</form>

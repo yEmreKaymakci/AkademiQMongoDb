@@ -1,0 +1,40 @@
+﻿@model List<ResultAdminDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+<h1>Admin Rol</h1>
+
+<table class="table table-hover">
+    <tr>
+        <th>#</th>
+        <th>İsim</th>
+        <th>Soy İsim</th>
+        <th>Kullanıcı Adı</th>
+        <th>Şifre</th>
+        <th>Onay</th>
+        <th>İşlemler</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        count++;
+
+        <tr>
+            <th>@count</th>
+            <td>@item.FirstName</td>
+            <td>@item.LastName</td>
+            <td>@item.UserName</td>
+            <td>@item.Password</td>
+            <td>@item.IsVerified</td>
+            <td>
+                <a href="/Admin/Admin/DeleteAdmin/@item.Id" onclick="return confirm('Bu öğeyi silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</a>
+                <a href="/Admin/Admin/UpdateAdmin/@item.Id" class="btn btn-outline-info">Güncelle</a>
+            </td>
+        </tr>
+    }
+
+</table>
+<a href="/Admin/Admin/CreateAdmin" class="btn btn-outline-dark">Yeni Kullanıcı Oluştur</a>

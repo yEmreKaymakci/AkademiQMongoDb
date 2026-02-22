@@ -13,5 +13,6 @@
         public string SendMessageCollectionName { get; set; }
         public string SubscriberCollectionName { get; set; }
         public string TestimonialCollectionName { get; set; }
+        public string BookingCollectionName { get; set; }
     }
 }

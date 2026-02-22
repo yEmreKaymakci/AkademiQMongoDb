@@ -9,6 +9,7 @@ namespace AkademiQMongoDb.Services.SubscriberServices
         Task<List<ResultSubscriberDto>> GetAllAsync();
         Task<ResultSubscriberDto> GetByIdAsync(string id);
         Task CreateAsync(CreateSubscriberDto subscriberDto);
+        Task UpdateAsync(UpdateSubscriberDto subscriberDto);
         Task DeleteAsync(string id);
     }
 }

@@ -1,21 +1,43 @@
-﻿using AkademiQMongoDb.Services.AdminServices;
+﻿using AkademiQMongoDb.Services.SendMessageServices;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AkademiQMongoDb.ViewComponents.AdminLayoutComponents
 {
-    public class _AdminLayoutNavbarViewComponent(IAdminService _adminService) : ViewComponent
+    // Artık IAdminService'e ihtiyacımız kalmadı, veritabanına gitmeyeceğiz!
+    public class _AdminLayoutNavbarViewComponent : ViewComponent
     {
+        private readonly ISendMessageService _sendMessageService;
+
+        public _AdminLayoutNavbarViewComponent(ISendMessageService sendMessageService)
+        {
+            _sendMessageService = sendMessageService;
+        }
+
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var userName = HttpContext.Session.GetString("UserName");
-            if (!string.IsNullOrEmpty(userName))
+            // 1. İSİM BULMA İŞLEMİ (Veritabanı yerine Cookie/Claim'den okuyoruz)
+            var claimsPrincipal = HttpContext.User;
+
+            if (claimsPrincipal.Identity != null && claimsPrincipal.Identity.IsAuthenticated)
             {
-                var admin = await _adminService.GetAdminByUserNameAsync(userName);
-                if (admin != null)
-                {
-                    ViewBag.fullName = string.Join(" ", admin.FirstName, admin.LastName);
-                }
+                // LoginController'da oluşturduğun "fullName" claim'ini yakalıyoruz
+                var fullNameClaim = claimsPrincipal.FindFirst("fullName")?.Value;
+
+                // Eğer Claim boş değilse onu yaz, boşsa Kullanıcı Adını yaz
+                ViewBag.fullName = !string.IsNullOrWhiteSpace(fullNameClaim)
+                    ? fullNameClaim
+                    : claimsPrincipal.Identity.Name;
             }
+            else
+            {
+                ViewBag.fullName = "Misafir Yönetici";
+            }
+
+            // 2. OKUNMAMIŞ MESAJ SAYISI (Bu kısım aynen kalıyor)
+            var messages = await _sendMessageService.GetAllAsync();
+            var unreadCount = messages.Count(x => !x.IsRead);
+            ViewBag.UnreadMessageCount = unreadCount;
+
             return View();
         }
     }

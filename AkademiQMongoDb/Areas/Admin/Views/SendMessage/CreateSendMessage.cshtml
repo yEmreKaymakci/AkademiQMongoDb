@@ -1,0 +1,33 @@
+﻿@model CreateSendMessageDto
+@{
+    ViewData["Title"] = "CreateSendMessage";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Mesaj Oluştur</h1>
+<br />
+<br />
+
+<form method="post">
+    <label>Tam İsim</label>
+    <input type="text" asp-for="FullName" class="form-control" placeholder="Adınız ve Soyadınız..." required />
+    <span asp-validation-for="FullName" class="text-danger"></span>
+    <br>
+
+    <label>E-posta Adresi</label>
+    <input type="email" asp-for="Email" class="form-control" placeholder="ornek@mail.com" required />
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <br>
+
+    <label>Telefon Numarası</label>
+    <input type="tel" asp-for="Phone" class="form-control" placeholder="05xx..." onkeypress="return event.charCode >= 48 && event.charCode <= 57" />
+    <span asp-validation-for="Phone" class="text-danger"></span>
+    <br>
+
+    <label>Mesajınız</label>
+    <textarea asp-for="Content" rows="5" class="form-control" placeholder="Mesajınızı buraya yazınız (Maks. 500 karakter)..." required></textarea>
+    <span asp-validation-for="Content" class="text-danger"></span>
+    <br>
+
+    <button class="btn btn-dark">Mesajı Gönder</button>
+</form>

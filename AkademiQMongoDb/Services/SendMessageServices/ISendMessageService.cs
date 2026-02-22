@@ -7,6 +7,7 @@ namespace AkademiQMongoDb.Services.SendMessageServices
         Task<List<ResultSendBoxDto>> GetAllAsync();
         Task<ResultSendBoxDto> GetByIdAsync(string id);
         Task CreateAsync(CreateSendMessageDto sendMessageDto);
+        Task UpdateAsync(UpdateSendMessageDto sendMessageDto);
         Task DeleteAsync(string id);
     }
 }

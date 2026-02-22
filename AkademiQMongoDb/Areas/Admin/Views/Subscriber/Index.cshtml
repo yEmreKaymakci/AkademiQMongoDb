@@ -1,0 +1,43 @@
+﻿@model List<ResultSubscriberDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<h1>Abonelik sayfası</h1>
+
+<table class="table table-hover">
+	<tr>
+		<th>#</th>
+		<th>E-posta</th>
+		<th>İşlemler</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		count++;
+
+		<tr>
+			<th>@count</th>
+			<td>@item.Email</td>
+			<td>
+				<a href="/Admin/Subscriber/DeleteSubscriber/@item.Id" onclick="return confirm('Bu öğeyi silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</a>
+				<a href="/Admin/Subscriber/UpdateSubscriber/@item.Id" class="btn btn-outline-info">Güncelle</a>
+			</td>
+		</tr>
+	}
+
+</table>
+<div class="d-flex gap-2">
+	<a href="/Admin/Subscriber/CreateSubscriber" class="btn btn-outline-dark">Yeni Abonelik Oluştur</a>
+
+	<a href="/Admin/Subscriber/SendDiscountEmails" class="btn btn-success" onclick="return confirm('Tüm abonelere indirim maili gönderilecek. Onaylıyor musunuz?')">
+		<i class="fas fa-paper-plane"></i> Herkese İndirim Kodu Gönder
+	</a>
+</div>
+
+@if (TempData["MailSuccess"] != null)
+{
+	<div class="alert alert-success mt-3">@TempData["MailSuccess"]</div>
+}

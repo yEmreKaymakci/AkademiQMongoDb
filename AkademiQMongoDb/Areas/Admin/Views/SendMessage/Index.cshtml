@@ -1,0 +1,54 @@
+﻿@model List<ResultSendBoxDto>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int count = 0;
+}
+
+<h1>Gelen Mesaj Kutusu</h1>
+
+<table class="table table-hover">
+	<tr>
+		<th>#</th>
+		<th>İsim Soyisim</th>
+		<th>E-posta</th>
+		<th>Telefon Numarası</th>
+		<th>Mesaj</th>
+		<th>Okunma Durumu</th>
+		<th>İşlemler</th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		count++;
+
+		<tr>
+			<th>@count</th>
+			<td>@item.FullName</td>
+			<td>@item.Email</td>
+			<td>@item.Phone</td>
+			<td>@item.Content</td>
+			<td>
+				@if (item.IsRead)
+				{
+					<span class="badge bg-success">Okundu</span>
+				}
+				else
+				{
+					<span class="badge bg-danger">Okunmadı</span>
+				}
+			</td>
+			<td>
+				<a href="/Admin/SendMessage/ToggleReadStatus/@item.Id" class="btn @(item.IsRead ? "btn-outline-warning" : "btn-outline-success")">
+					@(item.IsRead ? "Okunmadı İşaretle" : "Okundu İşaretle")
+				</a>
+
+				<a href="/Admin/SendMessage/DeleteSendMessage/@item.Id" onclick="return confirm('Bu öğeyi silmek istediğinize emin misiniz?')" class="btn btn-outline-danger">Sil</a>
+			</td>
+		</tr>
+	}
+
+</table>
+<a href="/Admin/SendMessage/CreateSendMessage" class="btn btn-outline-dark">Yeni Mesaj Oluştur</a>
+
+

@@ -1,0 +1,33 @@
+﻿@model CreateBookingDto
+@{
+    ViewData["Title"] = "CreateBooking";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Rezervasyon Oluştur</h1>
+<br />
+<br />
+
+<form method="post">
+    <label>Telefon Numarası</label>
+    <input type="tel" asp-for="Phone" class="form-control" placeholder="05xx..." required />
+    <span asp-validation-for="Phone" class="text-danger"></span>
+    <br>
+
+    <label>Kişi Sayısı</label>
+    <input type="number" asp-for="PersonCount" class="form-control" placeholder="Örn: 4" required />
+    <span asp-validation-for="PersonCount" class="text-danger"></span>
+    <br>
+
+    <label>Rezervasyon Tarihi</label>
+    <input type="date" asp-for="Date" class="form-control" required />
+    <span asp-validation-for="Date" class="text-danger"></span>
+    <br>
+
+    <label>Rezervasyon Saati</label>
+    <input type="time" asp-for="Time" class="form-control" required />
+    <span asp-validation-for="Time" class="text-danger"></span>
+    <br>
+
+    <button class="btn btn-dark">Rezervasyonu Kaydet</button>
+</form>

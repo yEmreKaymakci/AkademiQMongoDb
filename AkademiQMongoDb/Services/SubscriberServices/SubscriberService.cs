@@ -1,4 +1,5 @@
-﻿using AkademiQMongoDb.DTOs.SubscriberDtos;
+﻿using AkademiQMongoDb.DTOs.SendMessageDtos;
+using AkademiQMongoDb.DTOs.SubscriberDtos;
 using AkademiQMongoDb.Entities;
 using AkademiQMongoDb.Settings;
 using Mapster;
@@ -40,6 +41,13 @@ namespace AkademiQMongoDb.Services.SubscriberServices
         {
             var subscriber = await _subscriberCollection.Find(x => x.Id == id).FirstOrDefaultAsync();
             return subscriber.Adapt<ResultSubscriberDto>();
+        }
+
+        public async Task UpdateAsync(UpdateSubscriberDto subscriberDto)
+        {
+            var subscriber = subscriberDto.Adapt<Subscriber>();
+            await _subscriberCollection.FindOneAndReplaceAsync(x => x.Id == subscriber.Id, subscriber);
+
         }
     }
 }

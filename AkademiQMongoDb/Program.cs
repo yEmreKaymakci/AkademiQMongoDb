@@ -1,9 +1,11 @@
 using AkademiQMongoDb.Services.AboutServices;
 using AkademiQMongoDb.Services.AdminServices;
 using AkademiQMongoDb.Services.BannerServices;
+using AkademiQMongoDb.Services.BookingServices;
 using AkademiQMongoDb.Services.CategoryServices;
 using AkademiQMongoDb.Services.ChefServices;
 using AkademiQMongoDb.Services.ContactServices;
+using AkademiQMongoDb.Services.EmailServices;
 using AkademiQMongoDb.Services.ProductServices;
 using AkademiQMongoDb.Services.SendMessageServices;
 using AkademiQMongoDb.Services.SubscriberServices;
@@ -35,6 +37,8 @@ builder.Services.AddScoped<IContactService, ContactService>();
 builder.Services.AddScoped<ISendMessageService, SendMessageService>();
 builder.Services.AddScoped<ISubscriberService, SubscriberService>();
 builder.Services.AddScoped<ITestimonialService, TestimonialService>();
+builder.Services.AddScoped<IBookingService, BookingService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 // 3. Controller ve Yetkilendirme Politikasý
 builder.Services.AddControllersWithViews(options =>

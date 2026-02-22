@@ -1,0 +1,38 @@
+﻿@model CreateTestimonialDto
+@{
+    ViewData["Title"] = "CreateTestimonial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Yeni Müşteri Yorumu Oluştur</h1>
+<br />
+<br />
+
+<form method="post">
+    <label>Müşteri Adı Soyadı</label>
+    <input type="text" asp-for="FullName" class="form-control" placeholder="Örn: Vedat Tadım" required />
+    <span asp-validation-for="FullName" class="text-danger"></span>
+    <br>
+
+    <label>Yorum Başlığı (Ünvan)</label>
+    <input type="text" asp-for="Title" class="form-control" placeholder="Örn: Gastronomi Eleştirmeni" required />
+    <span asp-validation-for="Title" class="text-danger"></span>
+    <br>
+
+    <label>Müşteri Fotoğraf Linki (URL)</label>
+    <input type="text" asp-for="ImageUrl" class="form-control" placeholder="https://..." required />
+    <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    <br>
+
+    <label>Yorum / Mesaj</label>
+    <textarea asp-for="Comment" rows="4" class="form-control" placeholder="Müşteri yorumu (Maks. 250 karakter)..." required></textarea>
+    <span asp-validation-for="Comment" class="text-danger"></span>
+    <br>
+
+    <label>Değerlendirme Puanı (1 - 5)</label>
+    <input type="number" asp-for="Rate" class="form-control" min="1" max="5" placeholder="1 ile 5 arasında bir puan giriniz" required />
+    <span asp-validation-for="Rate" class="text-danger"></span>
+    <br>
+
+    <button class="btn btn-dark">Yorumu Kaydet</button>
+</form>
