@@ -1,4 +1,4 @@
-# 🥗 Foodu - .NET 9 & MongoDB Dinamik Restoran Yönetim Sistemi
+# 🥗 Chick Chick - .NET 9 & MongoDB Dinamik Restoran Yönetim Sistemi
 
 ![.NET 9](https://img.shields.io/badge/.NET-9.0-512bd4?style=for-the-badge&logo=dotnet)
 ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white)
